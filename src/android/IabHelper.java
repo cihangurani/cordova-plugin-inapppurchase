@@ -829,11 +829,10 @@ public class IabHelper {
     }
 
     void flagStartAsync(String operation) {
-        if (mAsyncInProgress && (operation=="launchPurchaseFlow" || operation=="refresh inventory")) 
+        if (mAsyncInProgress) 
           flagEndAsync();
-        else
-          throw new IllegalStateException("Can't start async operation (" +
-                operation + ") because another async operation(" + mAsyncOperation + ") is in progress.");
+        
+          //throw new IllegalStateException("Can't start async operation (" + operation + ") because another async operation(" + mAsyncOperation + ") is in progress.");
       
         mAsyncOperation = operation;
         mAsyncInProgress = true;
